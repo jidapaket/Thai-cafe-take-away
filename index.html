@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sawasdee Thai Café & Takeaway</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#f5f2eb;
+            color:#222;
+        }
+
+        /* NAVBAR */
+
+        nav{
+
+            position:fixed;
+
+            top:0;
+
+            width:100%;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            padding:20px 60px;
+
+            background:rgba(0,0,0,0.55);
+
+            z-index:1000;
+        }
+
+        .logo{
+
+            color:white;
+
+            font-size:34px;
+
+            font-weight:bold;
+        }
+
+        nav ul{
+
+            display:flex;
+
+            gap:30px;
+
+            list-style:none;
+        }
+
+        nav a{
+
+            color:white;
+
+            text-decoration:none;
+
+            font-size:20px;
+
+            transition:0.3s;
+        }
+
+        nav a:hover{
+
+            color:#9be7a5;
+        }
+
+        /* HERO */
+
+        .hero{
+
+            height:100vh;
+
+            background-image:
+            linear-gradient(
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.45)),
+            url("2.jpg");
+
+            background-size:cover;
+
+            background-position:center;
+
+            display:flex;
+
+            flex-direction:column;
+
+            justify-content:center;
+
+            align-items:center;
+
+            text-align:center;
+
+            color:white;
+        }
+
+        .hero h1{
+
+            font-size:110px;
+
+            letter-spacing:10px;
+
+            margin-bottom:20px;
+        }
+
+        .hero p{
+
+            font-size:35px;
+
+            margin-bottom:60px;
+        }
+
+        .hero button{
+
+            padding:18px 45px;
+
+            border:none;
+
+            border-radius:12px;
+
+            background:#1f5c2e;
+
+            color:white;
+
+            font-size:24px;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        .hero button:hover{
+
+            background:#2e7a42;
+
+            transform:scale(1.05);
+        }
+
+        /* ABOUT */
+
+        #about{
+
+            padding:120px 60px;
+
+            text-align:center;
+
+            background:white;
+        }
+
+        #about h2{
+
+            font-size:60px;
+
+            color:#1f5c2e;
+
+            margin-bottom:40px;
+        }
+
+        #about p{
+
+            font-size:26px;
+
+            max-width:1000px;
+
+            margin:auto;
+
+            line-height:1.8;
+        }
+
+        /* MENU */
+
+        #menu{
+
+            padding:120px 50px;
+
+            background:#f5f2eb;
+        }
+
+        #menu h2{
+
+            text-align:center;
+
+            font-size:65px;
+
+            color:#1f5c2e;
+
+            margin-bottom:70px;
+        }
+
+        .menu-container{
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:40px;
+
+            flex-wrap:wrap;
+        }
+
+        .menu-card{
+
+            width:350px;
+
+            background:white;
+
+            border-radius:25px;
+
+            overflow:hidden;
+
+            box-shadow:0 5px 20px rgba(0,0,0,0.15);
+
+            transition:0.3s;
+        }
+
+        .menu-card:hover{
+
+            transform:translateY(-10px);
+        }
+
+        .menu-card img{
+
+            width:100%;
+
+            height:250px;
+
+            object-fit:cover;
+        }
+
+        .menu-card h3{
+
+            font-size:38px;
+
+            text-align:center;
+
+            margin-top:20px;
+
+            color:#1f5c2e;
+        }
+
+        .price{
+
+            text-align:center;
+
+            font-size:30px;
+
+            margin:20px 0;
+        }
+
+        .menu-card button{
+
+            display:block;
+
+            margin:0 auto 30px;
+
+            padding:14px 30px;
+
+            border:none;
+
+            border-radius:10px;
+
+            background:#1f5c2e;
+
+            color:white;
+
+            font-size:20px;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        .menu-card button:hover{
+
+            background:#2e7a42;
+        }
+
+        /* CART */
+
+        #cart{
+
+            background:white;
+
+            padding:120px 50px;
+        }
+
+        #cart h2{
+
+            text-align:center;
+
+            font-size:60px;
+
+            color:#1f5c2e;
+
+            margin-bottom:50px;
+        }
+
+        .cart-box{
+
+            max-width:900px;
+
+            margin:auto;
+
+            background:#f5f2eb;
+
+            padding:40px;
+
+            border-radius:25px;
+        }
+
+        #cart-items{
+
+            font-size:24px;
+
+            line-height:2;
+        }
+
+        #total{
+
+            font-size:35px;
+
+            margin-top:30px;
+
+            color:#1f5c2e;
+
+            font-weight:bold;
+        }
+
+        /* CHECKOUT */
+
+        #checkout{
+
+            padding:120px 50px;
+
+            background:#1f5c2e;
+
+            color:white;
+        }
+
+        #checkout h2{
+
+            text-align:center;
+
+            font-size:60px;
+
+            margin-bottom:50px;
+        }
+
+        .form-container{
+
+            max-width:800px;
+
+            margin:auto;
+
+            display:flex;
+
+            flex-direction:column;
+
+            gap:25px;
+        }
+
+        input, textarea{
+
+            padding:20px;
+
+            border:none;
+
+            border-radius:10px;
+
+            font-size:20px;
+        }
+
+        textarea{
+
+            height:150px;
+        }
+
+        .submit-btn{
+
+            background:white;
+
+            color:#1f5c2e;
+
+            font-weight:bold;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        .submit-btn:hover{
+
+            background:#d8f1dd;
+        }
+
+        /* FOOTER */
+
+        footer{
+
+            background:black;
+
+            color:white;
+
+            text-align:center;
+
+            padding:30px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:900px){
+
+            nav{
+
+                padding:20px;
+            }
+
+            .logo{
+
+                font-size:24px;
+            }
+
+            nav ul{
+
+                gap:15px;
+            }
+
+            nav a{
+
+                font-size:16px;
+            }
+
+            .hero h1{
+
+                font-size:60px;
+            }
+
+            .hero p{
+
+                font-size:24px;
+            }
+
+            #about h2,
+            #menu h2,
+            #cart h2,
+            #checkout h2{
+
+                font-size:42px;
+            }
+
+            .menu-card{
+
+                width:100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Sawasdee Thai Café
+        </div>
+
+        <ul>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#menu">Menu</a></li>
+
+            <li><a href="#cart">Cart</a></li>
+
+            <li><a href="#checkout">Order</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>THAILICIOUS</h1>
+
+        <p>Thai Café & Takeaway</p>
+
+        <a href="#menu">
+
+            <button>
+                Order Now
+            </button>
+
+        </a>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <h2>About Us</h2>
+
+        <p>
+            Authentic Thai flavours inspired by Bangkok street food,
+            blended with New Zealand café culture.
+            Enjoy dine-in, takeaway, and online ordering
+            with freshly prepared meals and premium Thai drinks.
+        </p>
+
+    </section>
+
+    <!-- MENU -->
+
+    <section id="menu">
+
+        <h2>Popular Menu</h2>
+
+        <div class="menu-container">
+
+            <!-- PAD THAI -->
+
+            <div class="menu-card">
+
+                <img src="padthai.jpg">
+
+                <h3>Pad Thai</h3>
+
+                <div class="price">$18</div>
+
+                <button onclick="addToCart('Pad Thai',18)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <!-- MILK TEA -->
+
+            <div class="menu-card">
+
+                <img src="Milk.jpg">
+
+                <h3>Thai Milk Tea</h3>
+
+                <div class="price">$8</div>
+
+                <button onclick="addToCart('Thai Milk Tea',8)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <!-- MANGO -->
+
+            <div class="menu-card">
+
+                <img src="mango.jpg">
+
+                <h3>Mango Sticky Rice</h3>
+
+                <div class="price">$12</div>
+
+                <button onclick="addToCart('Mango Sticky Rice',12)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CART -->
+
+    <section id="cart">
+
+        <h2>Your Cart</h2>
+
+        <div class="cart-box">
+
+            <div id="cart-items">
+                No items added.
+            </div>
+
+            <div id="total">
+                Total: $0
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CHECKOUT -->
+
+    <section id="checkout">
+
+        <h2>Place Your Order</h2>
+
+        <div class="form-container">
+
+            <input type="text" placeholder="Your Name">
+
+            <input type="tel" placeholder="Phone Number">
+
+            <input type="text" placeholder="Pickup or Delivery Address">
+
+            <textarea placeholder="Additional Notes"></textarea>
+
+            <input
+            type="submit"
+            value="Submit Order"
+            class="submit-btn">
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Sawasdee Thai Café & Takeaway
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        let cart = [];
+
+        let total = 0;
+
+        function addToCart(item, price){
+
+            cart.push({
+                name: item,
+                price: price
+            });
+
+            total += price;
+
+            displayCart();
+        }
+
+        function removeItem(index){
+
+            total -= cart[index].price;
+
+            cart.splice(index, 1);
+
+            displayCart();
+        }
+
+        function displayCart(){
+
+            let cartItems =
+            document.getElementById("cart-items");
+
+            cartItems.innerHTML = "";
+
+            if(cart.length === 0){
+
+                cartItems.innerHTML =
+                "No items added.";
+
+                document.getElementById("total")
+                .innerHTML =
+                "Total: $0";
+
+                return;
+            }
+
+            for(let i = 0; i < cart.length; i++){
+
+                cartItems.innerHTML +=
+
+                `
+                <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:20px;
+                background:white;
+                padding:15px;
+                border-radius:10px;
+                ">
+
+                    <div>
+                        ${cart[i].name} - $${cart[i].price}
+                    </div>
+
+                    <button onclick="removeItem(${i})"
+                    style="
+                    background:red;
+                    color:white;
+                    border:none;
+                    padding:10px 15px;
+                    border-radius:8px;
+                    cursor:pointer;
+                    ">
+
+                        Remove
+
+                    </button>
+
+                </div>
+                `;
+            }
+
+            document.getElementById("total")
+            .innerHTML =
+            "Total: $" + total;
+        }
+
+    </script>
+
+</body>
+
+</html>
